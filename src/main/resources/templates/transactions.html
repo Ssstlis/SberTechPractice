@@ -1,0 +1,61 @@
+<!-- Thymeleaf Namespace -->
+
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Все транзакции</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../../bootstrap.min.css">
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link" href="/add">Добавить счет</a><br/>
+            <a class="nav-item nav-link" href="/all">Все счета</a><br/>
+            <a class="nav-item nav-link" href="/transactions">Все транзакции</a><br/>
+            <a class="nav-item nav-link" href="/search">Сдеать выборку</a><br/>
+            <a class="nav-item nav-link" href="/transfer">Сделать перевод</a><br/>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-8">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th scope="col">Номер счета отправителя</th>
+                    <th scope="col">Номер счета получателя</th>
+                    <th scope="col">Сумма перевода</th>
+                    <th scope="col">Дата перевода</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="transaction : ${transactions}">
+                    <td th:utext="${transaction.senderId}">...</td>
+                    <td th:utext="${transaction.accepterId}">...</td>
+                    <td th:utext="${transaction.amount}">...</td>
+                    <td scope="row" th:utext="${transaction.date}">...</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+</div>
+
+<script src="../../jquery-3.3.1.slim.min.js"></script>
+<script src="../../popper.min.js"></script>
+<script src="../../bootstrap.min.js"></script>
+</body>
+</html>
