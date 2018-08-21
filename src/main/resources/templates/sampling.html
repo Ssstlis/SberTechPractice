@@ -18,11 +18,11 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-            <a class="nav-item nav-link" href="/add">Добавить счет</a><br/>
-            <a class="nav-item nav-link" href="/all">Все счета</a><br/>
+            <a class="nav-item nav-link" href="/addBill">Добавить счет</a><br/>
+            <a class="nav-item nav-link" href="/bills">Все счета</a><br/>
             <a class="nav-item nav-link" href="/transactions">Все транзакции</a><br/>
-            <a class="nav-item nav-link" href="/search">Сдеать выборку</a><br/>
-            <a class="nav-item nav-link" href="/transfer">Сделать перевод</a><br/>
+            <a class="nav-item nav-link" href="/sampling">Сделать выборку</a><br/>
+            <a class="nav-item nav-link" href="/addTransaction">Сделать перевод</a><br/>
         </div>
     </div>
 </nav>
@@ -39,7 +39,7 @@
                     <small class="form-text text-muted">Будут показаны транзакции с данным отправителем.</small>
                 </div>
                 <div class="form-group">
-                    <label for="accepterField">Номер счета отправителя:</label>
+                    <label for="accepterField">Номер счета получателя:</label>
                     <input class="form-control" id="accepterField" type="number" min="1" placeholder="1" th:field="*{accepterId}"/><br/>
                     <small class="form-text text-muted">Будут показаны транзакции с данным получателем.</small>
                 </div>

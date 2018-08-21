@@ -33,7 +33,8 @@ public class PostController {
         Long money = billForm.getMoney();
         Bill bill = billService.createBill(money);
         transactionService.insertTransaction(0L, bill.id, money);
-        return "index";
+        model.addAttribute("bills", billService.All());
+        return "allBills";
     }
 
     @RequestMapping(value = "/transfer", method = POST)
@@ -42,7 +43,8 @@ public class PostController {
         Long senderId = transactionForm.getSenderId();
         Long accepterId = transactionForm.getAccepterId();
         transactionService.insertTransaction(senderId,accepterId,amount);
-        return "index";
+        model.addAttribute("transactions", transactionService.All());
+        return "allTransactions";
     }
 
     @RequestMapping(value = "/sampling", method = POST)
@@ -60,7 +62,7 @@ public class PostController {
                 .sorted(Comparator.comparingLong(f -> f.accepterId))
                 .collect(Collectors.toList());
         model.addAttribute("transactions", transactions);
-        return "transactions";
+        return "allTransactions";
     }
 
     @InitBinder

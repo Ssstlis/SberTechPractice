@@ -25,33 +25,33 @@ public class GetController {
         return "index";
     }
 
-    @RequestMapping(value = "/all", method = GET)
+    @RequestMapping(value = "/bills", method = GET)
     public String bills(Model model) {
         model.addAttribute("bills", billService.All());
-        return "all";
+        return "allBills";
     }
 
     @RequestMapping(value = "/transactions", method = GET)
     public String transactions(Model model) {
         model.addAttribute("transactions", transactionService.All());
-        return "transactions";
+        return "allTransactions";
     }
 
-    @RequestMapping(value = "/add", method = GET)
+    @RequestMapping(value = "/addBill", method = GET)
     public String createBill(Model model) {
         model.addAttribute("billForm", new BillForm());
-        return "add";
+        return "addBill";
     }
 
-    @RequestMapping(value = "/search", method = GET)
+    @RequestMapping(value = "/sampling", method = GET)
     public String search(Model model) {
         model.addAttribute("sampleForm", new SampleForm());
-        return "search";
+        return "sampling";
     }
 
-    @RequestMapping(value = "/transfer", method = GET)
+    @RequestMapping(value = "/addTransaction", method = GET)
     public String transaction(Model model) {
-        model.addAttribute("transferForm", new TransactionForm());
-        return "transfer";
+        model.addAttribute("transactionForm", new TransactionForm());
+        return "addTransaction";
     }
 }

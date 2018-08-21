@@ -4,7 +4,7 @@
 <html lang="ru" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Все счета</title>
+    <title>Все транзакции</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="../../bootstrap.min.css">
 
@@ -18,11 +18,11 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-            <a class="nav-item nav-link" href="/add">Добавить счет</a><br/>
-            <a class="nav-item nav-link" href="/all">Все счета</a><br/>
+            <a class="nav-item nav-link" href="/addBill">Добавить счет</a><br/>
+            <a class="nav-item nav-link" href="/bills">Все счета</a><br/>
             <a class="nav-item nav-link" href="/transactions">Все транзакции</a><br/>
-            <a class="nav-item nav-link" href="/search">Сдеать выборку</a><br/>
-            <a class="nav-item nav-link" href="/transfer">Сделать перевод</a><br/>
+            <a class="nav-item nav-link" href="/sampling">Сделать выборку</a><br/>
+            <a class="nav-item nav-link" href="/addTransaction">Сделать перевод</a><br/>
         </div>
     </div>
 </nav>
@@ -34,14 +34,18 @@
             <table class="table table-hover">
                 <thead>
                 <tr>
-                    <th scope="col">Номер счета</th>
-                    <th scope="col">Баланс</th>
+                    <th scope="col">Номер счета отправителя</th>
+                    <th scope="col">Номер счета получателя</th>
+                    <th scope="col">Сумма перевода</th>
+                    <th scope="col">Дата перевода</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="bill : ${bills}">
-                    <th scope="row" th:utext="${bill.id}">...</th>
-                    <td th:utext="${bill.balance}">...</td>
+                <tr th:each="transaction : ${transactions}">
+                    <td th:utext="${transaction.senderId}">...</td>
+                    <td th:utext="${transaction.accepterId}">...</td>
+                    <td th:utext="${transaction.amount}">...</td>
+                    <td scope="row" th:utext="${transaction.date}">...</td>
                 </tr>
                 </tbody>
             </table>

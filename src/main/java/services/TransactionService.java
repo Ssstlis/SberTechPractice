@@ -52,10 +52,6 @@ public class TransactionService {
         return dao.findByAccepterId(id);
     }
 
-    public List<Transaction> findByAccepterAndSender(Long accepter, Long sender) {
-       return dao.findByAccepterIdAndSenderId(accepter, sender);
-    }
-
     public List<Transaction> All() {
         return dao.findAll();
     }

@@ -18,11 +18,11 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-            <a class="nav-item nav-link" href="/add">Добавить счет</a><br/>
-            <a class="nav-item nav-link" href="/all">Все счета</a><br/>
+            <a class="nav-item nav-link" href="/addBill">Добавить счет</a><br/>
+            <a class="nav-item nav-link" href="/bills">Все счета</a><br/>
             <a class="nav-item nav-link" href="/transactions">Все транзакции</a><br/>
-            <a class="nav-item nav-link" href="/search">Сдеать выборку</a><br/>
-            <a class="nav-item nav-link" href="/transfer">Сделать перевод</a><br/>
+            <a class="nav-item nav-link" href="/sampling">Сделать выборку</a><br/>
+            <a class="nav-item nav-link" href="/addTransaction">Сделать перевод</a><br/>
         </div>
     </div>
 </nav>
@@ -31,8 +31,8 @@
     <div class="row">
         <div class="col-md-4"></div>
         <div class="col-md-4">
-            <!--/*@thymesVar id="transferForm" type="forms.TransactionForm"*/-->
-            <form th:action="@{/transfer}" th:object="${transferForm}" method="POST">
+            <!--/*@thymesVar id="transactionForm" type="forms.TransactionForm"*/-->
+            <form th:action="@{/transfer}" th:object="${transactionForm}" method="POST">
                 <div class="form-group">
                     <label for="senderId">Счет отправителя:</label>
                     <input class="form-control" id="senderId" type="number" min="1" placeholder="1" required
